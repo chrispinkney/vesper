@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-03-01T21:19:03.576Z" agent="5.0 (Windows)" etag="5kxUycgsTkG014Qt2u-t" version="14.4.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-01T21:28:34.729Z" agent="5.0 (Windows)" etag="rRHYMYEjvJgTxkZr6K28" version="14.4.3" type="github">
   <diagram id="BHP3nF4R962l0nsyFi1U" name="Page-1">
-    <mxGraphModel dx="4880" dy="4285" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="3537" dy="3590" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -105,7 +105,7 @@
           <mxGeometry x="128.99999999999994" y="-1500" width="180" height="20" as="geometry" />
         </mxCell>
         <mxCell id="dHE7tIidJEhlcoBUh_R6-173" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 36px&quot;&gt;Ideas:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font size=&quot;3&quot;&gt;Hash OHIP card number to uniquely identify a user&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;font size=&quot;3&quot;&gt;Create an SVG QR code out of an OHIP number&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="1240" y="-2004.18" width="420" height="134.18" as="geometry" />
+          <mxGeometry x="1230" y="-1975.42" width="420" height="134.18" as="geometry" />
         </mxCell>
         <mxCell id="dHE7tIidJEhlcoBUh_R6-129" value="" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="880" y="-2004.18" width="280" height="484.18" as="geometry" />
@@ -271,7 +271,7 @@
           <mxGeometry x="309" y="-1307.5" width="15" height="15" as="geometry" />
         </mxCell>
         <mxCell id="dHE7tIidJEhlcoBUh_R6-182" value="&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 36px&quot;&gt;Notes:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font size=&quot;3&quot;&gt;The system would be connected to provincial health network suchthat each province can be customized and autofilled based on ohip/health card number.&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;font size=&quot;3&quot;&gt;Health officials would send confirmation code to the user to enter into the app (which is used to confirm authenticity of vaccinations.)&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;font size=&quot;3&quot;&gt;The system would be linked with provinces that keep track of vaccinations and tests to autofill them in your profile when account is created.&lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="1240" y="-1870" width="420" height="270" as="geometry" />
+          <mxGeometry x="1230" y="-1841.24" width="420" height="270" as="geometry" />
         </mxCell>
         <mxCell id="wNZ1jNhqM1yubl_F3X3Q-205" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#3333FF;" edge="1" parent="1" source="wNZ1jNhqM1yubl_F3X3Q-1" target="wNZ1jNhqM1yubl_F3X3Q-171">
           <mxGeometry relative="1" as="geometry">
@@ -324,8 +324,9 @@
         <mxCell id="wNZ1jNhqM1yubl_F3X3Q-19" value="Generate" style="rounded=1;fillColor=#0057D8;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;fontStyle=0;fontSize=14;html=1;shadow=0;dashed=0" vertex="1" parent="1">
           <mxGeometry x="945" y="-1216.9399999999998" width="150" height="33.87" as="geometry" />
         </mxCell>
-        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-202" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#3333FF;" edge="1" parent="1" source="wNZ1jNhqM1yubl_F3X3Q-21" target="wNZ1jNhqM1yubl_F3X3Q-42">
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-202" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#3333FF;" edge="1" parent="1" source="wNZ1jNhqM1yubl_F3X3Q-21">
           <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1280" y="-680" as="targetPoint" />
             <Array as="points">
               <mxPoint x="1240" y="-1408" />
               <mxPoint x="1240" y="-680" />
@@ -382,24 +383,6 @@
             <mxPoint x="620" y="-1517" as="sourcePoint" />
             <mxPoint x="620" y="-1447" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-42" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1280" y="-920" width="280" height="480" as="geometry" />
-        </mxCell>
-        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-43" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1401.9473684210527" y="-487.0557377049179" width="36.10526315789473" height="39.18688524590165" as="geometry" />
-        </mxCell>
-        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-44" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1298.6642105263159" y="-901.1777049180328" width="242.66421052631577" height="406.09573770491806" as="geometry" />
-        </mxCell>
-        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-45" value="Add Test Information" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1299.66" y="-900.1800000000001" width="241.34" height="24" as="geometry" />
-        </mxCell>
-        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-46" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.back;" vertex="1" parent="1">
-          <mxGeometry x="1306.3999999999999" y="-893.1800000000001" width="18" height="9.18" as="geometry" />
-        </mxCell>
-        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-51" value="Add" style="rounded=1;fillColor=#0057D8;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;fontStyle=0;fontSize=14;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1345.33" y="-539.9999999999998" width="150" height="33.87" as="geometry" />
         </mxCell>
         <mxCell id="wNZ1jNhqM1yubl_F3X3Q-63" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="880" y="-920" width="280" height="480" as="geometry" />
@@ -568,6 +551,102 @@
         </mxCell>
         <mxCell id="wNZ1jNhqM1yubl_F3X3Q-209" value="&lt;b&gt;All Vaccinations Complete&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="-258" y="-550" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-210" value="" style="dashed=0;align=center;fontSize=12;shape=rect;fillColor=#ffffff;strokeColor=#cccccc;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="-860" width="220" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-211" value="Vaccination" style="shape=rect;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;strokeColor=#cccccc;align=left;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-210">
+          <mxGeometry width="220" height="40" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-212" value="" style="dashed=0;html=1;shape=mxgraph.gmdl.triangle;fillColor=#cccccc;strokeColor=none;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-211">
+          <mxGeometry x="1" y="0.5" width="10" height="5" relative="1" as="geometry">
+            <mxPoint x="-25" y="-2.5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-213" value="COVID-19 (SARS-CoV-2)" style="shape=rect;align=left;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;fillColor=#eeeeee;strokeColor=none;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-210">
+          <mxGeometry width="220" height="30" relative="1" as="geometry">
+            <mxPoint y="50" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-214" value="Tetanus" style="text;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-210">
+          <mxGeometry width="220" height="30" relative="1" as="geometry">
+            <mxPoint y="80" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-215" value="Pertussis (Whooping Cough)" style="text;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-210">
+          <mxGeometry width="220" height="30" relative="1" as="geometry">
+            <mxPoint y="110" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-216" value="Polio" style="text;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-210">
+          <mxGeometry width="220" height="30" relative="1" as="geometry">
+            <mxPoint y="145" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-217" value="Varicella (Chickenpox)" style="text;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-210">
+          <mxGeometry width="220" height="30" relative="1" as="geometry">
+            <mxPoint y="175" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-218" value="&lt;div align=&quot;center&quot;&gt;Verification Code&lt;/div&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+          <mxGeometry x="131" y="-604" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-219" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="-920" width="280" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-220" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1401.9473684210527" y="-487.0557377049179" width="36.10526315789473" height="39.18688524590165" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-221" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1298.6642105263159" y="-901.1777049180328" width="242.66421052631577" height="406.09573770491806" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-222" value="Add Test Information" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1299.66" y="-900.1800000000001" width="241.34" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-223" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.back;" vertex="1" parent="1">
+          <mxGeometry x="1306.3999999999999" y="-893.1800000000001" width="18" height="9.18" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-224" value="Add" style="rounded=1;fillColor=#0057D8;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;fontStyle=0;fontSize=14;html=1;shadow=0;dashed=0" vertex="1" parent="1">
+          <mxGeometry x="1347" y="-539.9999999999998" width="150" height="33.87" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-225" value="" style="dashed=0;align=center;fontSize=12;shape=rect;fillColor=#ffffff;strokeColor=#cccccc;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1311" y="-860" width="220" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-226" value="Tests" style="shape=rect;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;strokeColor=#cccccc;align=left;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-225">
+          <mxGeometry width="220" height="40" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-227" value="" style="dashed=0;html=1;shape=mxgraph.gmdl.triangle;fillColor=#cccccc;strokeColor=none;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-226">
+          <mxGeometry x="1" y="0.5" width="10" height="5" relative="1" as="geometry">
+            <mxPoint x="-25" y="-2.5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-228" value="COVID-19 (SARS-CoV-2)" style="shape=rect;align=left;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;fillColor=#eeeeee;strokeColor=none;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-225">
+          <mxGeometry width="220" height="30" relative="1" as="geometry">
+            <mxPoint y="50" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-229" value="Hepatitis" style="text;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-225">
+          <mxGeometry width="220" height="30" relative="1" as="geometry">
+            <mxPoint y="80" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-230" value="HIV" style="text;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-225">
+          <mxGeometry width="220" height="30" relative="1" as="geometry">
+            <mxPoint y="110" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-231" value="Pap Smear" style="text;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-225">
+          <mxGeometry width="220" height="30" relative="1" as="geometry">
+            <mxPoint y="145" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-232" value="Tuberculosis (TB)" style="text;fontColor=#000000;verticalAlign=middle;spacingLeft=13;fontSize=14;resizeWidth=1;" vertex="1" parent="wNZ1jNhqM1yubl_F3X3Q-225">
+          <mxGeometry width="220" height="30" relative="1" as="geometry">
+            <mxPoint y="175" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wNZ1jNhqM1yubl_F3X3Q-233" value="&lt;div align=&quot;center&quot;&gt;Verification Code&lt;/div&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;strokeColor=#666666;mainText=" vertex="1" parent="1">
+          <mxGeometry x="1332" y="-604" width="180" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
