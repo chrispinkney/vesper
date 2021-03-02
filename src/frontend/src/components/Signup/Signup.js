@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Form, Row, Col, Container, Button } from 'react-bootstrap';
 import Header from '../Header/Header';
 
-export class Signup extends Component {
-  state = { ohipNumber: 0, province: this.props.headerText };
+class Signup extends Component {
+  state = { province: this.props.headerText };
 
   render() {
     return (

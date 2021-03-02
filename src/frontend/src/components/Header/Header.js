@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navbar } from 'react-bootstrap';
 // import { BoxArrowLeft } from 'react-bootstrap-icons';
 
-export class Header extends Component {
+class Header extends Component {
   render() {
     return (
       <Navbar bg="dark" variant="dark">
