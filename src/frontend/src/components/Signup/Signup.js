@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { Form, Row, Col, Container, Button } from 'react-bootstrap';
 import Header from '../Header/Header';
 
-class Signup extends Component {
-  state = { province: this.props.headerText };
+export default class Signup extends Component {
+  state = { province: this.props.province };
 
   render() {
     return (
       <>
         {!this.state.province ? (
-          <Header headerText="Signup" />
+          <Header headerText="Signup" infoState={false} />
         ) : (
-          <Header headerText={`${this.state.province} Signup`} />
+          <Header headerText={`${this.state.province} Signup`} infoState={false} />
         )}
         <div className="col-xs-1 text-center">
           <Container>
@@ -54,5 +54,3 @@ class Signup extends Component {
     );
   }
 }
-
-export default Signup;

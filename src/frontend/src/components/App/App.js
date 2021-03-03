@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Splash from '../Splash/Splash';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
-import Main from '../Main/Main';
+import Home from '../Home/Home';
 import Vaccines from '../Vaccines/Vaccines';
 import Tests from '../Tests/Tests';
+import VaccinesInfo from '../VaccinesInfo/VaccinesInfo';
+import TestsInfo from '../TestsInfo/TestsInfo';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class App extends Component {
+export default class App extends Component {
   state = {
     province: '',
     user: {
@@ -23,11 +25,14 @@ class App extends Component {
       tests: {
         'covid-19 test': 'ya',
       },
+      verification: 'abc123',
     },
   };
 
-  onChangeProvince = async (province) => {
-    await this.setState({ province: province });
+  onChangeProvince = (province) => {
+    this.setState(() => ({
+      province,
+    }));
   };
 
   render() {
@@ -37,33 +42,25 @@ class App extends Component {
           <Route
             path="/"
             exact
-            render={(props) => <Splash onChangeProvince={this.onChangeProvince} />}
+            render={() => <Splash onChangeProvince={this.onChangeProvince} />}
           />
           <Route
             path="/login"
             exact
-            render={(props) => <Login headerText={this.state.province.province} />}
+            render={() => <Login province={this.state.province.province} />}
           />
           <Route
             path="/signup"
             exact
-            render={(props) => <Signup headerText={this.state.province.province} />}
+            render={() => <Signup province={this.state.province.province} />}
           />
-          <Route path="/main" exact render={(props) => <Main user={this.state.user} />} />
-          <Route
-            path="/vaccines"
-            exact
-            render={(props) => <Vaccines headerText={this.state.province.province} />}
-          />
-          <Route
-            path="/tests"
-            exact
-            render={(props) => <Tests headerText={this.state.province.province} />}
-          />
+          <Route path="/home" exact render={() => <Home user={this.state.user} />} />
+          <Route path="/vaccines" exact render={() => <Vaccines user={this.state.user} />} />
+          <Route path="/tests" exact render={() => <Tests user={this.state.user} />} />
+          <Route path="/vaccines-info" exact render={() => <VaccinesInfo />} />
+          <Route path="/tests-info" exact render={() => <TestsInfo />} />
         </Switch>
       </Router>
     );
   }
 }
-
-export default App;

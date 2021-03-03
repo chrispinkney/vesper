@@ -3,7 +3,7 @@ import { Row, Col, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Avatar from '../../static/images/avatar.png';
 
-class Main extends Component {
+export default class Home extends Component {
   state = { user: this.props.user };
 
   render() {
@@ -61,5 +61,3 @@ class Main extends Component {
     );
   }
 }
-
-export default Main;

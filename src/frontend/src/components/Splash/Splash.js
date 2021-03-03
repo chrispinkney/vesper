@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { Row, Col, Dropdown, DropdownButton, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-class Splash extends Component {
+export default class Splash extends Component {
   state = { province: '' };
 
-  selectedProvince = async (e, province) => {
-    await this.setState({ province });
-    await this.props.onChangeProvince({ province: province });
+  onChangeProvince = (province) => {
+    this.setState(() => ({
+      province,
+    }));
+  };
+
+  selectedProvince = (e, province) => {
+    this.setState(() => ({ province }));
+    this.props.onChangeProvince({ province: province });
   };
 
   renderProvinceButton = () => {
@@ -101,5 +107,3 @@ class Splash extends Component {
     return this.renderSplash();
   }
 }
-
-export default Splash;

@@ -3,16 +3,16 @@ import { Form, Row, Col, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 
-class Login extends Component {
-  state = { province: this.props.headerText };
+export default class Login extends Component {
+  state = { province: this.props.province };
 
   render() {
     return (
       <>
         {!this.state.province ? (
-          <Header headerText="Login" />
+          <Header headerText="Login" infoState={false} />
         ) : (
-          <Header headerText={`${this.state.province} Login`} />
+          <Header headerText={`${this.state.province} Login`} infoState={false} />
         )}
         <div className="col-xs-1 text-center">
           <Container>
@@ -42,7 +42,7 @@ class Login extends Component {
           <Container>
             <Row className="justify-content-md-center">
               <Col sm={3}>
-                <Link to="/main">
+                <Link to="/home">
                   <Button variant="success">Login</Button>
                 </Link>
               </Col>
@@ -53,5 +53,3 @@ class Login extends Component {
     );
   }
 }
-
-export default Login;
