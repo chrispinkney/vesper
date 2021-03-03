@@ -3,6 +3,6 @@ const data = require('./data');
 
 const router = express.Router();
 
-router.use('/', data);
+router.use('/api', data);
 
 module.exports = router;
