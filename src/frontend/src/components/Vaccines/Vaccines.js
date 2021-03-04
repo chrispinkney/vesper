@@ -12,6 +12,7 @@ import {
 } from 'react-bootstrap';
 import { ArrowRightCircle, CheckCircleFill, XCircle } from 'react-bootstrap-icons';
 import Header from '../Header/Header';
+import QRCode from 'qrcode.react';
 
 export default class Vaccines extends Component {
   state = {
@@ -19,7 +20,8 @@ export default class Vaccines extends Component {
     diseases: [],
     isVaccineDetails: false,
     vaccineDetail: {},
-    vaccineTable: {},
+    vaccinesToGenerate: [],
+    showQR: false,
   };
 
   async componentDidMount() {
@@ -170,6 +172,35 @@ export default class Vaccines extends Component {
     this.toggleIsVaccineDetails(this.state.isVaccineDetails);
   };
 
+  recordCheckedVaccines = (event) => {
+    // if the checkbox was just clicked
+    const selectedDisease = event.target.id;
+    if (event.currentTarget.checked) {
+      // checking for duplicate entries, does not work atm.
+      // if (this.state.vaccinesToGenerate.find((disease) => disease.name === selectedDisease)) {
+      //   console.log('Already included in this.state.vaccinesToGenerate');
+      // } else {
+      if (Object.keys(this.state.user.vaccines).includes(selectedDisease)) {
+        this.state.vaccinesToGenerate.push({
+          [selectedDisease]: this.state.user.vaccines[`${selectedDisease}`],
+        });
+      }
+      console.log(this.state.vaccinesToGenerate);
+    }
+    // checking for duplicate entries, does not work atm.
+    // } else {
+    //   for (var i = 0; i < Object.keys(this.state.user.vaccines).length; i++) {
+    //     console.log('vaccines to generate: ', this.state.vaccinesToGenerate[i]);
+    //     console.log('selected disease: ', selectedDisease);
+    //     if (this.state.vaccinesToGenerate[i] === selectedDisease) {
+    //       console.log('equal thing: ', this.state.vaccinesToGenerate[i]);
+    //     } else if (this.state.vaccinesToGenerate[i] === undefined) {
+    //       console.log('undefined');
+    //     }
+    //   }
+    // }
+  };
+
   renderVaccineCard = () => {
     return (
       <ListGroup.Item>
@@ -183,22 +214,82 @@ export default class Vaccines extends Component {
               </Row>
             ) : (
               this.state.diseases.map((disease) => (
-                <>
-                  <Row>
-                    <Col sm={10} style={{ textAlign: 'left' }}>
-                      <Form.Check key={disease.name} type="checkbox" label={disease.name} />
-                    </Col>
-                    <Col sm={2} style={{ textAlign: 'right' }}>
-                      <ArrowRightCircle size={20} onClick={() => this.setVaccineDetails(disease)} />
-                    </Col>
-                  </Row>
-                </>
+                <Row style={{ cursor: 'pointer' }}>
+                  <Col sm={10} style={{ textAlign: 'left', cursor: 'pointer' }}>
+                    <Form.Check
+                      key={disease.name}
+                      type="checkbox"
+                      id={disease.name}
+                      label={disease.name}
+                      style={{ cursor: 'pointer' }}
+                      onChange={(e) => this.recordCheckedVaccines(e)}
+                    />
+                  </Col>
+                  <Col sm={2} style={{ textAlign: 'right' }}>
+                    <ArrowRightCircle
+                      size={20}
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => this.setVaccineDetails(disease)}
+                    />
+                  </Col>
+                </Row>
               ))
             )}
           </Form.Group>
         </Container>
       </ListGroup.Item>
     );
+  };
+
+  showQR = (prevState) => {
+    // this.setState((prevState) => ({ showQR: !prevState.showQR }));
+    this.setState(() => ({ showQR: true }));
+  };
+
+  renderQR = () => {
+    if (this.state.showQR && Object.keys(this.state.vaccinesToGenerate).length === 0) {
+      return (
+        <Container className="justify-content-md-center" style={{ textAlign: 'center' }}>
+          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
+            <QRCode
+              value={JSON.stringify(this.state.user.vaccines)}
+              size={128}
+              bgColor={'#ffffff'}
+              fgColor={'#000000'}
+              level={'L'}
+              includeMargin={false}
+              renderAs={'svg'}
+            />
+          </Row>
+          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
+            <p>
+              <b>My Vaccines QR Code</b>
+            </p>
+          </Row>
+        </Container>
+      );
+    } else if (this.state.showQR) {
+      return (
+        <Container className="justify-content-md-center" style={{ textAlign: 'center' }}>
+          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
+            <QRCode
+              value={JSON.stringify(this.state.vaccinesToGenerate)}
+              size={128}
+              bgColor={'#ffffff'}
+              fgColor={'#000000'}
+              level={'L'}
+              includeMargin={false}
+              renderAs={'svg'}
+            />
+          </Row>
+          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
+            <p>
+              <b>My Customized Vaccines QR Code</b>
+            </p>
+          </Row>
+        </Container>
+      );
+    }
   };
 
   render() {
@@ -216,11 +307,15 @@ export default class Vaccines extends Component {
             </Row>
             <br />
             <hr />
-            <br />
             <Row className="justify-content-md-center">
-              <Button variant="primary">Generate</Button>
+              <Button variant="primary" onClick={() => this.showQR()}>
+                Generate
+              </Button>
             </Row>
+            <br />
+            <Row className="justify-content-md-center">{this.renderQR()}</Row>
           </Container>
+          <br />
         </>
       );
     } else {
