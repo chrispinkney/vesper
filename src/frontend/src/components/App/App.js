@@ -29,7 +29,14 @@ export default class App extends Component {
         },
       },
       tests: {
-        'covid-19': false,
+        'COVID-19 (Coronavirus)': {
+          results: {
+            'January 28 2021': 'Negative',
+            'January 19 2021': 'Negative',
+            'December 21 2020': 'Negative',
+            'November 07 2020': 'Negative',
+          },
+        },
       },
       verification: 'abc123',
     },

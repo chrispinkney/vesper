@@ -15,7 +15,6 @@ import Header from '../Header/Header';
 
 export default class Vaccines extends Component {
   state = {
-    testUser: {},
     user: this.props.user,
     diseases: [],
     isVaccineDetails: false,
