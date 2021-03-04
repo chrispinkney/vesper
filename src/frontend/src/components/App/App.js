@@ -20,10 +20,12 @@ export default class App extends Component {
       dateOfBirth: 'December 15 1981',
       email: 'anita@gmail.com',
       vaccines: {
-        'covid-19 vaccine': 'ya',
+        'COVID-19 (Coronavirus)': {
+          doses: [{ 'First Dose': 'Feb 14 2021' }, { 'Second Dose': '' }],
+        },
       },
       tests: {
-        'covid-19 test': 'ya',
+        'covid-19': false,
       },
       verification: 'abc123',
     },
