@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default class App extends Component {
   state = {
     province: '',
+    // user: {},
     user: {
       ohipNumber: '5584-486-674',
       ohipVersionCode: 'YM',
@@ -21,11 +22,16 @@ export default class App extends Component {
       email: 'anita@gmail.com',
       vaccines: {
         'COVID-19 (Coronavirus)': {
-          doses: {
-            'First Dose': 'Feb 14 2021',
-            'Second Dose': '',
-          },
+          doses: ['Feb 14 2021', ''],
           status: false,
+        },
+        Shingles: {
+          doses: ['March 03 2021', ''],
+          status: false,
+        },
+        'Haemophilus Influenzae Type B': {
+          doses: ['Jan 15 2000', 'March 15 2000', 'July 15 2000', 'September 15 2001'],
+          status: true,
         },
       },
       tests: {
@@ -41,6 +47,15 @@ export default class App extends Component {
       verification: 'abc123',
     },
   };
+
+  // async componentDidMount() {
+  //   const response = await fetch('api/getuser');
+  //   const json = await response.json();
+  //   this.setState(() => ({ user: json }));
+  //   console.log('dbuser: ', this.state.user);
+  //   console.log('localuser :', this.state.user2);
+  //   console.log(this.state.user.vaccines.toString() === this.state.user2.vaccines.toString());
+  // }
 
   onChangeProvince = (province) => {
     this.setState(() => ({

@@ -19,6 +19,7 @@ export default class Vaccines extends Component {
     diseases: [],
     isVaccineDetails: false,
     vaccineDetail: {},
+    vaccineTable: {},
   };
 
   async componentDidMount() {
@@ -31,7 +32,18 @@ export default class Vaccines extends Component {
     this.setState((prevState) => ({ isVaccineDetails: !prevState.isVaccineDetails }));
   };
 
+  // finds a disease that a user has clicked on
+  // returns the vaccination schedule of that disease
+  // this function is ONLY used in renderDosesNeeded()
+  findDisease = () => {
+    let disease = this.state.diseases.find((obj) => {
+      return obj.name === `${this.state.vaccineDetail.name}`;
+    });
+    return disease['vaccination schedule'];
+  };
+
   renderDosesNeeded = (usersDoses) => {
+    // if the user has no vaccinations (doses) for that particular disease, return nothing
     if (!usersDoses)
       return (
         <tr style={{ textAlign: 'center' }}>
@@ -43,7 +55,16 @@ export default class Vaccines extends Component {
         </tr>
       );
 
-    return Object.entries(usersDoses.doses).map(([key, value]) => (
+    // declare a new object
+    // find the disease that was clicked on by the user
+    // set the new object's keys to the db's 'vaccination schedule' array
+    // and set the values to the user's vaccination doses
+    let VaccScheduleAndUserDoses = {};
+    const disease = this.findDisease();
+    disease.forEach((key, i) => (VaccScheduleAndUserDoses[key] = usersDoses.doses[i]));
+
+    // generate a table using the newly created object above
+    return Object.entries(VaccScheduleAndUserDoses).map(([key, value]) => (
       <tr style={{ textAlign: 'center' }}>
         <td>{key}</td>
         <td>{value}</td>

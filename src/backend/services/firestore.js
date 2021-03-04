@@ -10,6 +10,7 @@ if (process.env.FIRESTORE_EMULATOR_HOST === 'localhost:8080') {
     credential: admin.credential.applicationDefault(),
   });
 } else {
+  console.log('Connected to Firebase in online mode');
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });

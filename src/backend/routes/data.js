@@ -49,16 +49,16 @@ router.get('/getallvaccines', async (req, res, next) => {
 
 router.get('/getuser', async (req, res, next) => {
   try {
-    const userRef = db.collection('users').doc('qUEwkTTXlzQxnJWkcBKW');
+    const userRef = db.collection('users').doc('5584-486-674');
     const snapshot = await userRef.get();
 
-    // if (snapshot.empty) {
-    //   res.status(404).json({
-    //     msg: `That collection could not be found, or contains no data.`,
-    //   });
-    // } else {
-    res.status(200).json(snapshot.data());
-    // }
+    if (!snapshot.exists) {
+      res.status(404).json({
+        msg: `That collection could not be found, or contains no data.`,
+      });
+    } else {
+      res.status(200).json(snapshot.data());
+    }
   } catch (err) {
     next(err);
   }
