@@ -21,7 +21,11 @@ export default class App extends Component {
       email: 'anita@gmail.com',
       vaccines: {
         'COVID-19 (Coronavirus)': {
-          doses: [{ 'First Dose': 'Feb 14 2021' }, { 'Second Dose': '' }],
+          doses: {
+            'First Dose': 'Feb 14 2021',
+            'Second Dose': '',
+          },
+          status: false,
         },
       },
       tests: {

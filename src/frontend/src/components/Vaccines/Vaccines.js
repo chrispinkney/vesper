@@ -20,7 +20,6 @@ export default class Vaccines extends Component {
     diseases: [],
     isVaccineDetails: false,
     vaccineDetail: {},
-    doses: [{}]
   };
 
   async componentDidMount() {
@@ -33,37 +32,25 @@ export default class Vaccines extends Component {
     this.setState((prevState) => ({ isVaccineDetails: !prevState.isVaccineDetails }));
   };
 
-  renderVaccineCheckMark = (disease) => {
-    if (this.state.user.vaccines[`${disease}`]) {
-      return <CheckCircleFill color="green" />;
-    } else {
-      return <XCircle color="red" />;
-    }
-  };
-
   renderDosesNeeded = (usersDoses) => {
-    if (!usersDoses) return <td>No vaccination records found</td>;
-    // console.log(Object.values(usersDoses));
-    
-    return Object.values(usersDoses).map((dose) => 
+    if (!usersDoses)
       return (
-        <td>{dose[0]}</td>
-      ))};
-    // Object.values(usersDoses).map((dose) => console.log(dose['First Dose']));
-    // var tdString = '<td>';
-    // for (var i = 0; i < Object.keys(usersDoses.doses).length; i++) {
-    //   tdString += Object.keys(usersDoses.doses[i]);
-    // }
-    // tdString += '</td>';
-    // return tdString;
-  // };
-  renderDosesReceived = (usersDoses) => {
-    if (!usersDoses) return <td>No vaccination records found</td>;
-    return (
-      <>
-        <td>{Object.values(usersDoses.doses[0])}</td>
-      </>
-    );
+        <tr style={{ textAlign: 'center' }}>
+          <td>No vaccination records found</td>
+          <td></td>
+          <td>
+            <XCircle color="red" />
+          </td>
+        </tr>
+      );
+
+    return Object.entries(usersDoses.doses).map(([key, value]) => (
+      <tr style={{ textAlign: 'center' }}>
+        <td>{key}</td>
+        <td>{value}</td>
+        <td>{value ? <CheckCircleFill color="green" /> : <XCircle color="red" />}</td>
+      </tr>
+    ));
   };
 
   renderVaccineDetails = () => {
@@ -84,17 +71,19 @@ export default class Vaccines extends Component {
             </Col>
             <Col xs={12}>
               <p>
-                <b>Symptoms:</b> {this.state.vaccineDetail.symptoms.toString()}
+                <b>Symptoms:</b>{' '}
+                {this.state.vaccineDetail.symptoms.toString().replaceAll(',', ', ')}
               </p>
             </Col>
             <Col xs={12}>
               <p>
-                <b>Complications:</b> {this.state.vaccineDetail.symptoms.toString()}
+                <b>Complications:</b>{' '}
+                {this.state.vaccineDetail.complications.toString().replaceAll(',', ', ')}
               </p>
             </Col>
           </Row>
           <Row className="justify-content-md-center">
-            <Table striped bordered hover>
+            <Table striped bordered hover style={{ width: '97%' }}>
               <thead>
                 <tr style={{ textAlign: 'center' }}>
                   <th>Doses Needed</th>
@@ -103,47 +92,62 @@ export default class Vaccines extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr style={{ textAlign: 'left' }}>
-                  {/* <td>{Object.values(usersDoses).map((dose) => console.log(dose[0]))}</td> */}
-                  <td>
-                    {this.renderDosesNeeded(
-                      this.state.user.vaccines[`${this.state.vaccineDetail.name}`]
-                    )}
-                  </td>
-                  {/* {this.renderDosesReceived(
-                    this.state.user.vaccines[`${this.state.vaccineDetail.name}`]
-                  )} */}
-                  {/* <td>First Dose</td>
-                  <td>Feb 14. 2021</td> */}
-                  {/* <td>{this.renderVaccineCheckMark(this.state.vaccineDetail.name)}</td> */}
-                </tr>
-                {/* <tr style={{ textAlign: 'left' }}>
-                  <td>Second Dose</td>
-                  <td>Mar 01. 2021</td>
-                  <td>{this.renderVaccineCheckMark(this.state.vaccineDetail.name)}</td>
-                </tr> */}
+                {this.renderDosesNeeded(
+                  this.state.user.vaccines[`${this.state.vaccineDetail.name}`]
+                )}
               </tbody>
             </Table>
           </Row>
-          <br />
+          {this.renderVaccinationVerification()}
           <hr />
           <br />
           <Row className="justify-content-md-center">
             <Button variant="warning" onClick={() => this.toggleIsVaccineDetails()}>
               Go Back
             </Button>
-            &emsp;
-            <Button variant="success">Complications</Button>
           </Row>
         </Container>
       </>
     );
   };
 
+  renderVaccinationVerification = () => {
+    if (!this.state.user.vaccines[`${this.state.vaccineDetail.name}`]) {
+      return (
+        <Row className="text-center">
+          <Col xs={12}>
+            <XCircle color="red" size={50} />
+            <br />
+            <h5>Vaccination Not Complete</h5>
+          </Col>
+        </Row>
+      );
+    } else if (this.state.user.vaccines[`${this.state.vaccineDetail.name}`].status) {
+      return (
+        <Row className="text-center">
+          <Col xs={12}>
+            <CheckCircleFill color="green" size={50} />
+            <br />
+            <br />
+            <h5>All Vaccine Completed</h5>
+          </Col>
+        </Row>
+      );
+    } else
+      return (
+        <Row className="text-center">
+          <Col xs={12}>
+            <XCircle color="red" size={50} />
+            <br />
+            <h5>Vaccination Not Complete</h5>
+          </Col>
+        </Row>
+      );
+  };
+
   setVaccineDetails = (disease) => {
     this.setState(() => ({ vaccineDetail: disease }));
     this.toggleIsVaccineDetails(this.state.isVaccineDetails);
-    // this.renderVaccineDetails();
   };
 
   renderVaccineCard = () => {
@@ -201,7 +205,6 @@ export default class Vaccines extends Component {
       );
     } else {
       return <>{this.renderVaccineDetails()} </>;
-      // return <VaccineDetails disease={this.state.vaccineDetail} />;
     }
   }
 }
