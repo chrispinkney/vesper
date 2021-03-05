@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Form, Row, Col, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
-import DesktopBreakpoint from '../ResponsiveUtilities/DesktopBreakpoint';
-import MobileBreakpoint from '../ResponsiveUtilities/MobileBreakpoint';
 
 export default class Login extends Component {
   state = { province: this.props.province };

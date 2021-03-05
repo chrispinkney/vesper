@@ -180,13 +180,32 @@ export default class Vaccines extends Component {
       );
     } else
       return (
-        <Row className="text-center">
-          <Col xs={12}>
-            <XCircle color="red" size={50} />
+        <>
+          <DesktopBreakpoint>
+            <Row className="text-center">
+              <Col xs={12}>
+                <XCircle color="red" size={50} />
+                <br />
+                <h5>Vaccination Not Complete</h5>
+              </Col>
+            </Row>
+          </DesktopBreakpoint>
+          <MobileBreakpoint>
             <br />
-            <h5>Vaccination Not Complete</h5>
-          </Col>
-        </Row>
+            <br />
+            <Row className="text-center">
+              <Col xs={12}>
+                <XCircle color="red" size={130} />
+                <br />
+                <br />
+                <br />
+                <h5>Vaccination Not Complete</h5>
+              </Col>
+            </Row>
+            <br />
+            <br />
+          </MobileBreakpoint>
+        </>
       );
   };
 
