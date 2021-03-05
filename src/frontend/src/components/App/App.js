@@ -6,6 +6,8 @@ import Signup from '../Signup/Signup';
 import Home from '../Home/Home';
 import Vaccines from '../Vaccines/Vaccines';
 import Tests from '../Tests/Tests';
+import AddTest from '../Tests/AddTest';
+import AddVaccine from '../Vaccines/AddVaccine';
 import VaccinesInfo from '../VaccinesInfo/VaccinesInfo';
 import TestsInfo from '../TestsInfo/TestsInfo';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -84,6 +86,16 @@ export default class App extends Component {
           />
           <Route path="/home" exact render={() => <Home user={this.state.user} />} />
           <Route path="/vaccines" exact render={() => <Vaccines user={this.state.user} />} />
+          <Route
+            path="/addvaccines"
+            exact
+            render={() => <AddVaccine user={this.state.user} diseases={this.state.diseases} />}
+          />
+          <Route
+            path="/addtests"
+            exact
+            render={() => <AddTest user={this.state.user} diseases={this.state.diseases} />}
+          />
           <Route path="/tests" exact render={() => <Tests user={this.state.user} />} />
           <Route path="/vaccines-info" exact render={() => <VaccinesInfo />} />
           <Route path="/tests-info" exact render={() => <TestsInfo />} />
