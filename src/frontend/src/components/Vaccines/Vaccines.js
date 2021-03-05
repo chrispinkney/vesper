@@ -13,6 +13,9 @@ import {
 import { ArrowRightCircle, CheckCircleFill, XCircle } from 'react-bootstrap-icons';
 import Header from '../Header/Header';
 import QRCode from 'qrcode.react';
+import DesktopBreakpoint from '../ResponsiveUtilities/DesktopBreakpoint';
+import MobileBreakpoint from '../ResponsiveUtilities/MobileBreakpoint';
+import './Vaccines.css';
 
 export default class Vaccines extends Component {
   state = {
@@ -83,26 +86,35 @@ export default class Vaccines extends Component {
         <Container>
           <Row className="justify-content-md-center">
             <br />
-            <Col xs={12}>
-              <h5>{this.state.vaccineDetail.name}</h5>
-            </Col>
-            <Col xs={12}>
-              <p>
-                <b>Description:</b> {this.state.vaccineDetail.description}
-              </p>
-            </Col>
-            <Col xs={12}>
-              <p>
-                <b>Symptoms:</b>{' '}
-                {this.state.vaccineDetail.symptoms.toString().replaceAll(',', ', ')}
-              </p>
-            </Col>
-            <Col xs={12}>
-              <p>
-                <b>Complications:</b>{' '}
-                {this.state.vaccineDetail.complications.toString().replaceAll(',', ', ')}
-              </p>
-            </Col>
+            <DesktopBreakpoint>
+              <Col xs={12}>
+                <h5>{this.state.vaccineDetail.name}</h5>
+              </Col>
+            </DesktopBreakpoint>
+            <MobileBreakpoint>
+              <Col className="d-flex justify-content-center">
+                <h5>{this.state.vaccineDetail.name}</h5>
+              </Col>
+            </MobileBreakpoint>
+            <DesktopBreakpoint>
+              <Col xs={12}>
+                <p>
+                  <b>Description:</b> {this.state.vaccineDetail.description}
+                </p>
+              </Col>
+              <Col xs={12}>
+                <p>
+                  <b>Symptoms:</b>{' '}
+                  {this.state.vaccineDetail.symptoms.toString().replaceAll(',', ', ')}
+                </p>
+              </Col>
+              <Col xs={12}>
+                <p>
+                  <b>Complications:</b>{' '}
+                  {this.state.vaccineDetail.complications.toString().replaceAll(',', ', ')}
+                </p>
+              </Col>
+            </DesktopBreakpoint>
           </Row>
           <Row className="justify-content-md-center">
             <Table striped bordered hover style={{ width: '97%' }}>
@@ -123,11 +135,20 @@ export default class Vaccines extends Component {
           {this.renderVaccinationVerification()}
           <hr />
           <br />
-          <Row className="justify-content-md-center">
-            <Button variant="warning" onClick={() => this.toggleIsVaccineDetails()}>
-              Go Back
-            </Button>
-          </Row>
+          <DesktopBreakpoint>
+            <Row className="justify-content-md-center">
+              <Button variant="warning" onClick={() => this.toggleIsVaccineDetails()}>
+                Go Back
+              </Button>
+            </Row>
+          </DesktopBreakpoint>
+          <MobileBreakpoint>
+            <Row className="d-flex justify-content-center">
+              <Button variant="warning" onClick={() => this.toggleIsVaccineDetails()}>
+                Go Back
+              </Button>
+            </Row>
+          </MobileBreakpoint>
         </Container>
       </>
     );
@@ -137,11 +158,13 @@ export default class Vaccines extends Component {
     if (!this.state.user.vaccines[`${this.state.vaccineDetail.name}`]) {
       return (
         <Row className="text-center">
-          <Col xs={12}>
-            <XCircle color="red" size={50} />
-            <br />
-            <h5>Vaccination Not Complete</h5>
-          </Col>
+          <DesktopBreakpoint>
+            <Col xs={12}>
+              <XCircle color="red" size={50} />
+              <br />
+              <h5>Vaccination Not Complete</h5>
+            </Col>
+          </DesktopBreakpoint>
         </Row>
       );
     } else if (this.state.user.vaccines[`${this.state.vaccineDetail.name}`].status) {
@@ -203,41 +226,82 @@ export default class Vaccines extends Component {
 
   renderVaccineCard = () => {
     return (
-      <ListGroup.Item>
-        <Container>
-          <Form.Group controlId="formBasicCheckbox">
-            {this.state.diseases.length === 0 ? (
-              <Row>
-                <Col sm={12} style={{ textAlign: 'center' }}>
-                  <Spinner animation="border" />
-                </Col>
-              </Row>
-            ) : (
-              this.state.diseases.map((disease) => (
-                <Row style={{ cursor: 'pointer' }}>
-                  <Col sm={10} style={{ textAlign: 'left', cursor: 'pointer' }}>
-                    <Form.Check
-                      key={disease.name}
-                      type="checkbox"
-                      id={disease.name}
-                      label={disease.name}
-                      style={{ cursor: 'pointer' }}
-                      onChange={(e) => this.recordCheckedVaccines(e)}
-                    />
-                  </Col>
-                  <Col sm={2} style={{ textAlign: 'right' }}>
-                    <ArrowRightCircle
-                      size={20}
-                      style={{ cursor: 'pointer' }}
-                      onClick={() => this.setVaccineDetails(disease)}
-                    />
-                  </Col>
-                </Row>
-              ))
-            )}
-          </Form.Group>
-        </Container>
-      </ListGroup.Item>
+      <>
+        <DesktopBreakpoint>
+          <ListGroup.Item>
+            <Container>
+              <Form.Group controlId="formBasicCheckbox">
+                {this.state.diseases.length === 0 ? (
+                  <Row>
+                    <Col sm={12} style={{ textAlign: 'center' }}>
+                      <Spinner animation="border" />
+                    </Col>
+                  </Row>
+                ) : (
+                  this.state.diseases.map((disease) => (
+                    <Row style={{ cursor: 'pointer' }}>
+                      <Col sm={10} style={{ textAlign: 'left', cursor: 'pointer' }}>
+                        <Form.Check
+                          key={disease.name}
+                          type="checkbox"
+                          id={disease.name}
+                          label={disease.name}
+                          style={{ cursor: 'pointer' }}
+                          onChange={(e) => this.recordCheckedVaccines(e)}
+                        />
+                      </Col>
+                      <Col sm={2} style={{ textAlign: 'right' }}>
+                        <ArrowRightCircle
+                          size={20}
+                          style={{ cursor: 'pointer' }}
+                          onClick={() => this.setVaccineDetails(disease)}
+                        />
+                      </Col>
+                    </Row>
+                  ))
+                )}
+              </Form.Group>
+            </Container>
+          </ListGroup.Item>
+        </DesktopBreakpoint>
+        <MobileBreakpoint>
+          <ListGroup.Item id="hi">
+            <Container>
+              <Form.Group controlId="formBasicCheckbox">
+                {this.state.diseases.length === 0 ? (
+                  <Row>
+                    <Col sm={12} style={{ textAlign: 'center' }}>
+                      <Spinner animation="border" />
+                    </Col>
+                  </Row>
+                ) : (
+                  this.state.diseases.map((disease) => (
+                    <Row style={{ cursor: 'pointer' }}>
+                      <Col sm={10} style={{ textAlign: 'left', cursor: 'pointer' }}>
+                        <Form.Check
+                          key={disease.name}
+                          type="checkbox"
+                          id={disease.name}
+                          label={disease.name}
+                          style={{ cursor: 'pointer' }}
+                          onChange={(e) => this.recordCheckedVaccines(e)}
+                        />
+                      </Col>
+                      <Col sm={2} style={{ textAlign: 'right' }}>
+                        <ArrowRightCircle
+                          size={20}
+                          style={{ cursor: 'pointer' }}
+                          onClick={() => this.setVaccineDetails(disease)}
+                        />
+                      </Col>
+                    </Row>
+                  ))
+                )}
+              </Form.Group>
+            </Container>
+          </ListGroup.Item>
+        </MobileBreakpoint>
+      </>
     );
   };
 
@@ -249,45 +313,29 @@ export default class Vaccines extends Component {
   renderQR = () => {
     if (this.state.showQR && Object.keys(this.state.vaccinesToGenerate).length === 0) {
       return (
-        <Container className="justify-content-md-center" style={{ textAlign: 'center' }}>
-          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
-            <QRCode
-              value={JSON.stringify(this.state.user.vaccines)}
-              size={128}
-              bgColor={'#ffffff'}
-              fgColor={'#000000'}
-              level={'L'}
-              includeMargin={false}
-              renderAs={'svg'}
-            />
-          </Row>
-          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
-            <p>
-              <b>My Vaccines QR Code</b>
-            </p>
-          </Row>
-        </Container>
+        <>
+          <QRCode
+            value={JSON.stringify(this.state.user.vaccines)}
+            size={128}
+            bgColor={'#ffffff'}
+            fgColor={'#000000'}
+            level={'L'}
+            includeMargin={false}
+            renderAs={'svg'}
+          />
+        </>
       );
     } else if (this.state.showQR) {
       return (
-        <Container className="justify-content-md-center" style={{ textAlign: 'center' }}>
-          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
-            <QRCode
-              value={JSON.stringify(this.state.vaccinesToGenerate)}
-              size={128}
-              bgColor={'#ffffff'}
-              fgColor={'#000000'}
-              level={'L'}
-              includeMargin={false}
-              renderAs={'svg'}
-            />
-          </Row>
-          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
-            <p>
-              <b>My Customized Vaccines QR Code</b>
-            </p>
-          </Row>
-        </Container>
+        <QRCode
+          value={JSON.stringify(this.state.vaccinesToGenerate)}
+          size={128}
+          bgColor={'#ffffff'}
+          fgColor={'#000000'}
+          level={'L'}
+          includeMargin={false}
+          renderAs={'svg'}
+        />
       );
     }
   };
@@ -307,13 +355,37 @@ export default class Vaccines extends Component {
             </Row>
             <br />
             <hr />
-            <Row className="justify-content-md-center">
-              <Button variant="primary" onClick={() => this.showQR()}>
-                Generate
-              </Button>
-            </Row>
-            <br />
-            <Row className="justify-content-md-center">{this.renderQR()}</Row>
+            <DesktopBreakpoint>
+              <Row className="justify-content-md-center">
+                <Button variant="primary" onClick={() => this.showQR()}>
+                  Generate
+                </Button>
+              </Row>
+              <br />
+              <Row className="justify-content-md-center">{this.renderQR()}</Row>
+              <br />
+              <p style={{ textAlign: 'center' }}>
+                <b>My Vaccines QR Code</b>
+              </p>
+            </DesktopBreakpoint>
+
+            <MobileBreakpoint>
+              <Row className="justify-content-md-center">
+                <Col>
+                  <Row className="d-flex justify-content-center">
+                    <Button variant="primary" onClick={() => this.showQR()}>
+                      Generate
+                    </Button>
+                  </Row>
+                  <br />
+                  <Row className="d-flex justify-content-center">{this.renderQR()}</Row>
+                  <br />
+                  <p style={{ textAlign: 'center' }}>
+                    <b>My Vaccines QR Code</b>
+                  </p>
+                </Col>
+              </Row>
+            </MobileBreakpoint>
           </Container>
           <br />
         </>
