@@ -23,45 +23,29 @@ export default class Tests extends Component {
   renderQR = () => {
     if (this.state.showQR && Object.keys(this.state.testsToGenerate).length === 0) {
       return (
-        <Container className="justify-content-md-center" style={{ textAlign: 'center' }}>
-          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
-            <QRCode
-              value={JSON.stringify(this.state.user.tests)}
-              size={128}
-              bgColor={'#ffffff'}
-              fgColor={'#000000'}
-              level={'L'}
-              includeMargin={false}
-              renderAs={'svg'}
-            />
-          </Row>
-          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
-            <p>
-              <b>My Tests QR Code</b>
-            </p>
-          </Row>
-        </Container>
+        <>
+          <QRCode
+            value={JSON.stringify(this.state.user.tests)}
+            size={128}
+            bgColor={'#ffffff'}
+            fgColor={'#000000'}
+            level={'L'}
+            includeMargin={false}
+            renderAs={'svg'}
+          />
+        </>
       );
     } else if (this.state.showQR) {
       return (
-        <Container className="justify-content-md-center" style={{ textAlign: 'center' }}>
-          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
-            <QRCode
-              value={JSON.stringify(this.state.testsToGenerate)}
-              size={128}
-              bgColor={'#ffffff'}
-              fgColor={'#000000'}
-              level={'L'}
-              includeMargin={false}
-              renderAs={'svg'}
-            />
-          </Row>
-          <Row className="justify-content-md-center" style={{ textAlign: 'center' }}>
-            <p>
-              <b>My Customized Tests QR Code</b>
-            </p>
-          </Row>
-        </Container>
+        <QRCode
+          value={JSON.stringify(this.state.testsToGenerate)}
+          size={128}
+          bgColor={'#ffffff'}
+          fgColor={'#000000'}
+          level={'L'}
+          includeMargin={false}
+          renderAs={'svg'}
+        />
       );
     }
   };
@@ -133,24 +117,26 @@ export default class Tests extends Component {
       <Row className="justify-content-md-center">
         <table>
           <tbody>
-            <tr>
-              <td style={{ textAlign: 'left' }}>
-                <Form>
-                  <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check disabled type="checkbox" label="Share Most Recent Only" />
-                  </Form.Group>
-                </Form>
-              </td>
-            </tr>
-            <tr>
-              <td style={{ textAlign: 'left' }}>
-                <Form>
-                  <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check disabled type="checkbox" label="Share All" />
-                  </Form.Group>
-                </Form>
-              </td>
-            </tr>
+            <Container>
+              <tr>
+                <td style={{ textAlign: 'left' }}>
+                  <Form>
+                    <Form.Group controlId="formBasicCheckbox">
+                      <Form.Check disabled type="checkbox" label="Share Most Recent Only" />
+                    </Form.Group>
+                  </Form>
+                </td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: 'left' }}>
+                  <Form>
+                    <Form.Group controlId="formBasicCheckbox">
+                      <Form.Check disabled type="checkbox" label="Share All" />
+                    </Form.Group>
+                  </Form>
+                </td>
+              </tr>
+            </Container>
           </tbody>
         </table>
       </Row>
@@ -254,7 +240,11 @@ export default class Tests extends Component {
               </Row>
             </MobileBreakpoint>
             <br />
-            <Row className="justify-content-md-center">{this.renderQR()}</Row>
+            <Row className="d-flex justify-content-center">{this.renderQR()}</Row>
+            <br />
+            <p style={{ textAlign: 'center' }}>
+              <b>My Tests QR Code</b>
+            </p>
           </Container>
         </>
       );

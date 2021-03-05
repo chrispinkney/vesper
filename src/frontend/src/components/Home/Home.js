@@ -26,13 +26,12 @@ export default class Home extends Component {
         <MobileBreakpoint>
           <QRCode
             value={JSON.stringify(this.state.user)}
-            size={128}
+            size={250}
             bgColor={'#ffffff'}
             fgColor={'#000000'}
             level={'L'}
             includeMargin={false}
             renderAs={'svg'}
-            size="250"
           />
         </MobileBreakpoint>
       </>
