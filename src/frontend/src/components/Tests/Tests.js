@@ -3,6 +3,8 @@ import { Row, Col, Form, ListGroup, Container, Button, Card, Table } from 'react
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import Header from '../Header/Header';
 import QRCode from 'qrcode.react';
+import DesktopBreakpoint from '../ResponsiveUtilities/DesktopBreakpoint';
+import MobileBreakpoint from '../ResponsiveUtilities/MobileBreakpoint';
 
 export default class Tests extends Component {
   state = {
@@ -107,11 +109,20 @@ export default class Tests extends Component {
           {this.renderTestTable()}
           <hr />
           <br />
-          <Row className="justify-content-md-center">
-            <Button variant="warning" onClick={() => this.toggleIsTestDetails()}>
-              Go Back
-            </Button>
-          </Row>
+          <DesktopBreakpoint>
+            <Row className="justify-content-md-center">
+              <Button variant="warning" onClick={() => this.toggleIsTestDetails()}>
+                Go Back
+              </Button>
+            </Row>
+          </DesktopBreakpoint>
+          <MobileBreakpoint>
+            <Row className="d-flex justify-content-center">
+              <Button variant="warning" onClick={() => this.toggleIsTestDetails()}>
+                Go Back
+              </Button>
+            </Row>
+          </MobileBreakpoint>
         </Container>
       </>
     );
@@ -228,11 +239,20 @@ export default class Tests extends Component {
             <br />
             <hr />
             <br />
-            <Row className="justify-content-md-center">
-              <Button variant="primary" onClick={() => this.showQR()}>
-                Generate
-              </Button>
-            </Row>
+            <DesktopBreakpoint>
+              <Row className="justify-content-md-center">
+                <Button variant="primary" onClick={() => this.showQR()}>
+                  Generate
+                </Button>
+              </Row>
+            </DesktopBreakpoint>
+            <MobileBreakpoint>
+              <Row className="d-flex justify-content-center">
+                <Button variant="primary" onClick={() => this.showQR()}>
+                  Generate
+                </Button>
+              </Row>
+            </MobileBreakpoint>
             <br />
             <Row className="justify-content-md-center">{this.renderQR()}</Row>
           </Container>

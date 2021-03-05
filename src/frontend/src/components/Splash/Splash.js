@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col, Dropdown, DropdownButton, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import DesktopBreakpoint from '../ResponsiveUtilities/DesktopBreakpoint';
+import MobileBreakpoint from '../ResponsiveUtilities/MobileBreakpoint';
 
 export default class Splash extends Component {
   state = { province: '' };
@@ -71,22 +73,53 @@ export default class Splash extends Component {
   renderButtons = () => {
     return (
       <Container>
-        <Row className="justify-content-md-center">
-          {this.state.province !== '' && (
-            <>
-              <Col sm={3}>
-                <Link to="/login">
-                  <Button variant="success">Login</Button>
-                </Link>
-              </Col>
-              <Col sm={3}>
-                <Link to="/signup">
-                  <Button variant="success">Signup</Button>
-                </Link>
-              </Col>
-            </>
-          )}
-        </Row>
+        <DesktopBreakpoint>
+          <Row className="justify-content-md-center">
+            {this.state.province !== '' && (
+              <>
+                <Col sm={3}>
+                  <Link to="/login">
+                    <Button variant="success">Login</Button>
+                  </Link>
+                </Col>
+
+                <Col sm={3}>
+                  <Link to="/signup">
+                    <Button variant="success">Signup</Button>
+                  </Link>
+                </Col>
+              </>
+            )}
+          </Row>
+        </DesktopBreakpoint>
+        <MobileBreakpoint>
+          <Row className="justify-content-md-center">
+            {this.state.province !== '' && (
+              <>
+                <Col>
+                  <div>
+                    <br></br>
+                  </div>
+                  <Row className="d-flex justify-content-center">
+                    <Link to="/login">
+                      <Button variant="success">Login</Button>
+                    </Link>
+                  </Row>
+                  <Row>
+                    <div>
+                      <br></br>
+                    </div>
+                  </Row>
+                  <Row className="d-flex justify-content-center">
+                    <Link to="/signup">
+                      <Button variant="success">Signup</Button>
+                    </Link>
+                  </Row>
+                </Col>
+              </>
+            )}
+          </Row>
+        </MobileBreakpoint>
       </Container>
     );
   };
